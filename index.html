@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#faf9f6">
+  <meta name="description" content="KEEP — artigos esportivos para acompanhar o seu movimento. Descubra camisetas, tênis, mochilas e acessórios.">
+  <title>KEEP — Movimento, pessoas, histórias</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.8" cy="10.8" r="6.6"/><path d="m16 16 4.8 4.8"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="3.7"/><path d="M4.5 21v-2c0-4.1 3.1-6.2 7.5-6.2s7.5 2.1 7.5 6.2v2"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2 3h2.8L7.6 17h11.8l2.4-10.4H5.6"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.8 5.5a5.1 5.1 0 0 0-7.2 0L12 7.1l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21l8.8-8.3a5.1 5.1 0 0 0 0-7.2Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6.5-6.5L20 12l-6.5 6.5"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v12H2zM14 10h4l4 4v4h-8z"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="m12 2 9 4.5v11L12 22l-9-4.5v-11L12 2Zm-9 4.5L12 11l9-4.5M12 11v11"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 20 5v6c0 5.2-2.8 8.8-8 11-5.2-2.2-8-5.8-8-11V5l8-3Z"/><path d="m8.5 12 2.5 2.5 4.7-5"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m14.5 14.5 6 6M10 7v6M7 10h6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+  </svg>
+
+  <header class="site-header" id="inicio">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="KEEP, voltar ao início"><img src="assets/logo.png" alt="KEEP" width="154" height="64"></a>
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <a class="nav-link is-current" href="#inicio">Início</a>
+        <a class="nav-link" href="#produtos">Produtos</a>
+        <a class="nav-link" href="#colecoes">Coleções</a>
+        <a class="nav-link" href="#sobre">Sobre</a>
+        <a class="nav-link" href="#contato">Contato</a>
+      </nav>
+      <div class="header-actions">
+        <form class="search" id="searchForm" role="search">
+          <svg class="icon"><use href="#i-search"></use></svg>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Buscar produtos..." aria-label="Buscar produtos">
+        </form>
+        <button class="icon-btn favorite-nav" id="favoritesBtn" aria-label="Exibir favoritos" aria-pressed="false" title="Favoritos"><svg class="icon"><use href="#i-heart"></use></svg></button>
+        <button class="icon-btn" id="accountBtn" aria-label="Meu perfil" title="Meu perfil"><svg class="icon"><use href="#i-user"></use></svg></button>
+        <button class="icon-btn cart-trigger" id="cartBtn" aria-label="Abrir carrinho" title="Carrinho"><svg class="icon"><use href="#i-cart"></use></svg><span class="cart-count" id="cartCount">0</span></button>
+        <button class="icon-btn mobile-menu-button" id="menuBtn" aria-label="Abrir menu" aria-controls="mobileMenu" aria-expanded="false"><svg class="icon"><use href="#i-menu"></use></svg></button>
+      </div>
+    </div>
+    <nav class="mobile-nav" id="mobileMenu" aria-label="Menu para celular" hidden>
+      <a href="#inicio">Início</a><a href="#produtos">Produtos</a><a href="#colecoes">Coleções</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">ESPORTE EM TODO LUGAR</p>
+          <h1 id="heroTitle">Movimento<br>pessoas<br>histórias<span class="dot">.</span></h1>
+          <p class="hero-description">Produtos que acompanham o seu jogo,<br class="optional-break"> na escola, na rua e onde mais você for.</p>
+          <a class="button button-dark" href="#produtos">VER PRODUTOS <svg class="icon"><use href="#i-arrow"></use></svg></a>
+        </div>
+        <div class="hero-illustration" role="img" aria-label="Ilustração de um jovem jogando futebol e a frase Esporte conecta pessoas"></div>
+      </div>
+    </section>
+
+    <section class="category-section container" id="colecoes" aria-label="Explore os esportes">
+      <div class="category-grid">
+        <button type="button" class="category-card" data-category="futebol" aria-label="Ver artigos de futebol"><img src="assets/categoria-futebol.png" alt="Futebol" loading="lazy"></button>
+        <button type="button" class="category-card" data-category="basquete" aria-label="Ver artigos de basquete"><img src="assets/categoria-basquete.png" alt="Basquete" loading="lazy"></button>
+        <button type="button" class="category-card" data-category="skate" aria-label="Ver artigos de skate"><img src="assets/categoria-skate.png" alt="Skate" loading="lazy"></button>
+        <button type="button" class="category-card" data-category="corrida" aria-label="Ver artigos de corrida"><img src="assets/categoria-corrida.png" alt="Corrida" loading="lazy"></button>
+      </div>
+    </section>
+
+    <section class="products-section container" id="produtos" aria-labelledby="productsTitle">
+      <div class="section-heading">
+        <div>
+          <p id="productsSubtitle" class="section-kicker" hidden>SELEÇÃO KEEP</p>
+          <h2 id="productsTitle">Produtos em destaque</h2>
+        </div>
+        <button type="button" class="plain-link" id="viewAllBtn">VER TODOS <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </div>
+      <div id="productGrid" class="product-grid" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <p class="empty-title">Nenhum produto encontrado.</p>
+        <p>Tente outra pesquisa ou veja todos os produtos da loja.</p>
+        <button type="button" class="button button-dark" id="emptyResetBtn">VER TODOS <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </div>
+    </section>
+
+    <section class="features-bar container" aria-label="Vantagens da loja">
+      <div class="feature"><svg class="icon"><use href="#i-truck"></use></svg><div><strong>Frete grátis</strong><span>Acima de R$ 199*</span></div></div>
+      <div class="feature"><svg class="icon"><use href="#i-box"></use></svg><div><strong>Troca fácil</strong><span>Em até 30 dias*</span></div></div>
+      <div class="feature"><svg class="icon"><use href="#i-shield"></use></svg><div><strong>Compra protegida</strong><span>Experiência de demonstração</span></div></div>
+    </section>
+
+    <section class="story-section" id="sobre">
+      <div class="container story-inner">
+        <div><p class="eyebrow">NOSSA ESSÊNCIA</p><h2>O esporte vai<br>além do jogo<span class="dot">.</span></h2></div>
+        <div><p>A KEEP nasceu da ideia de que esporte é movimento, convivência e expressão. Produtos para quem encontra sua própria forma de jogar, correr, criar e explorar.</p><a href="#colecoes" class="text-link">EXPLORAR COLEÇÕES <svg class="icon"><use href="#i-arrow"></use></svg></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contato">
+    <div class="container footer-inner">
+      <div><img src="assets/logo.png" width="128" height="53" alt="KEEP"><p>Movimento, pessoas, histórias.</p></div>
+      <div><strong>Explore</strong><a href="#produtos">Produtos</a><a href="#colecoes">Coleções</a><a href="#sobre">Nossa história</a></div>
+      <div><strong>Atendimento</strong><p>Site demonstrativo de artigos esportivos.</p><p>Para vendas reais, é necessário integrar pagamentos, estoque e envio.</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="currentYear"></span> KEEP. Protótipo de loja.</span><span>*Benefícios ilustrativos, sujeitos a configuração da loja real.</span></div>
+  </footer>
+
+  <dialog class="product-dialog" id="productDialog" aria-labelledby="detailName">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Fechar detalhes"><svg class="icon"><use href="#i-close"></use></svg></button>
+    <div id="productDetail"></div>
+  </dialog>
+
+  <dialog class="cart-dialog" id="cartDialog" aria-labelledby="cartTitle">
+    <div class="drawer-header"><div><p class="section-kicker">SUA SELEÇÃO</p><h2 id="cartTitle">Meu carrinho <span id="cartHeaderCount"></span></h2></div><button class="dialog-close inline-close" type="button" data-close-dialog aria-label="Fechar carrinho"><svg class="icon"><use href="#i-close"></use></svg></button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom" id="cartBottom"></div>
+  </dialog>
+
+  <dialog class="account-dialog small-dialog" id="accountDialog" aria-labelledby="accountTitle">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Fechar perfil"><svg class="icon"><use href="#i-close"></use></svg></button>
+    <p class="section-kicker">MEU ESPAÇO</p><h2 id="accountTitle">Meu perfil</h2><p class="subtle">Salve seu nome neste navegador para personalizar a experiência. Não é uma conta online.</p>
+    <form id="accountForm" class="form-stack"><label for="accountName">Seu nome<input id="accountName" name="name" maxlength="80" autocomplete="name" required placeholder="Como podemos chamar você?"></label><button class="button button-yellow" type="submit">SALVAR PERFIL</button></form>
+    <div class="account-orders" id="orderHistory"></div>
+  </dialog>
+
+  <dialog class="checkout-dialog small-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
+    <button type="button" class="dialog-close" data-close-dialog aria-label="Fechar pedido"><svg class="icon"><use href="#i-close"></use></svg></button>
+    <div id="checkoutContent">
+      <p class="section-kicker">FINALIZAÇÃO DEMONSTRATIVA</p><h2 id="checkoutTitle">Revisar pedido</h2>
+      <p class="subtle">Este é um protótipo: nenhum pagamento será cobrado e nenhum pedido será enviado à loja.</p>
+      <div id="checkoutSummary" class="checkout-summary"></div>
+      <form id="checkoutForm" class="form-stack">
+        <label for="checkoutName">Nome completo<input id="checkoutName" name="name" autocomplete="name" required minlength="3" maxlength="100" placeholder="Seu nome"></label>
+        <label for="checkoutEmail">E-mail<input id="checkoutEmail" name="email" autocomplete="email" type="email" required placeholder="voce@exemplo.com"></label>
+        <button type="submit" class="button button-yellow">CONCLUIR SIMULAÇÃO <svg class="icon"><use href="#i-arrow"></use></svg></button>
+      </form>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
