@@ -8,9 +8,9 @@
 
 const PRODUCTS = [
   {
-    id: 'camiseta-movimento', name: 'Bola aaaaaa', price: 84.90,
-    category: 'futebol', type: 'Camisetas', image: 'assets/camiseta.png', detailImage: 'assets/camiseta-detalhe.png',
-    description: 'Alta durabilidade para garantir muitos momentos em família. A bola aaaaaa sinta a diversão do momento proporcionada pela qualidade da fabricação pensando no seu lazer.',
+    id: 'camiseta-movimento', name: 'Bola Topper Slick', price: 84.90,
+    category: 'futebol', type: 'Camisetas', image: 'assets/Gemini_Generated_Image_5bi2hh5bi2hh5bi2.jpg', detailImage: 'assets/bola.png',
+    description: 'Alta durabilidade para garantir muitos momentos em família. Sinta a diversão do momento proporcionada pela qualidade da fabricação pensada no seu lazer.',
     sizes: [], color: 'Azul', composition: 'Costura reforçada • produção não-poluente'
   },
   {
@@ -121,6 +121,7 @@ function renderProducts() {
         <span class="product-copy"><span class="product-name">${p.name}</span><strong class="product-price">${money(p.price)}</strong></span>
       </button>
     </article>`).join('');
+    //<span class="product-media"><img src="${p.image}" alt="${p.name}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; transform: scale(1.1);"></span>
   byId('emptyState').hidden = filtered.length !== 0;
 }
 
