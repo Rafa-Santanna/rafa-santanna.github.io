@@ -90,3 +90,96 @@ dialog{border:0;padding:0;color:var(--ink);background:#fff;box-shadow:var(--shad
   .hero h1 { font-size: clamp(47px, 12.3vw, 53px); }
   .hero-copy { padding-top: 39px; }
 }
+/* ==================================
+   GALERIA DE FOTOS DOS PRODUTOS
+   ================================== */
+
+.product-gallery {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+/* Imagem */
+.product-gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 7px 16px 0;
+    transition: opacity .2s ease, transform .25s ease;
+}
+
+/* Setinhas */
+.gallery-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .92);
+    color: #111;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+    z-index: 5;
+
+    opacity: 0;
+    transition: opacity .2s, background .2s;
+}
+
+/* Esquerda */
+.gallery-prev {
+    left: 8px;
+}
+
+/* Direita */
+.gallery-next {
+    right: 8px;
+}
+
+/* Mostrar setas ao passar o mouse */
+.product-card:hover .gallery-arrow,
+.gallery-arrow:focus-visible {
+    opacity: 1;
+}
+
+/* Efeito ao passar o mouse */
+.gallery-arrow:hover {
+    background: var(--yellow);
+}
+
+/* Indicador 1/2 */
+.gallery-indicator {
+    position: absolute;
+    bottom: 9px;
+    right: 10px;
+
+    background: rgba(0, 0, 0, .65);
+    color: white;
+
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 20px;
+
+    z-index: 4;
+}
+
+/* Celular: setinhas sempre visíveis */
+@media (max-width: 700px) {
+    .gallery-arrow {
+        opacity: 1;
+        width: 27px;
+        height: 27px;
+        font-size: 13px;
+    }
+}
