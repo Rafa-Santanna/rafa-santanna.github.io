@@ -19,7 +19,8 @@ const PRODUCTS = [
     description: 'Alta durabilidade para garantir muitos momentos em família. Sinta a diversão do momento proporcionada pela qualidade da fabricação pensada no seu lazer.',
     sizes: [],
     color: 'Azul',
-    composition: 'Costura reforçada • produção não-poluente'
+    composition: 'Costura reforçada • produção não-poluente',
+    hex: '#24959b'
   },
   {
     id: 'tenis-street',
@@ -31,8 +32,9 @@ const PRODUCTS = [
     images: ['assets/logo.png', 'assets/halter-1.jpg'],
     description: 'Halter sextavado de 2kg. Muito confortável e ideal para praticar atividades físicas.',
     sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
-    color: 'Preto / Multicolorido',
-    composition: 'Estilo casual esportivo'
+    color: 'Azul',
+    composition: 'Estilo casual esportivo',
+    hex: '#00ACDE'
   },
   {
     id: 'mochila-urbana',
@@ -45,7 +47,8 @@ const PRODUCTS = [
     description: 'Bicicleta infantil. Confortável e ideal para passeios e atividades físicas leves.',
     sizes: ['Único'],
     color: 'Rosa',
-    composition: 'Modelo urbano • Metal • Ideal para crianças de 8 anos'
+    composition: 'Modelo urbano • Metal • Ideal para crianças de 8 anos',
+    hex: '#fc8dd4'
   },
   {
     id: 'garrafa-keep',
@@ -58,7 +61,8 @@ const PRODUCTS = [
     description: 'Acompanhe sua rotina de exercícios com a Garrafa Keep.',
     sizes: ['Único'],
     color: 'Preto',
-    composition: 'Garrafa reutilizável • tampa rosqueável'
+    composition: 'Garrafa reutilizável • tampa rosqueável',
+    hex: '#000000'
   }
 ];
 
@@ -461,7 +465,7 @@ function renderProductDetail() {
           <p class="option-title">Cor: ${p.color}</p>
           <div class="color-list">
             <span class="color-item">
-              <span class="color-dot" aria-hidden="true"></span>
+              <span class="color-dot" aria-hidden="true" style="background:${p.hex}"></span>
               ${p.color}
             </span>
           </div>
