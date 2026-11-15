@@ -52,30 +52,30 @@ const PRODUCTS = [
   },
   {
     id: 'garrafa-keep',
-    name: 'Garrafa Keep',
+    name: 'Bola de basquete',
     price: 59.90,
     category: 'corrida',
     type: 'Acessórios',
     image: 'assets/bola-editada.jpg',
     images: ['assets/bola-editada.jpg', 'assets/basquete.jpg'],
-    description: 'Acompanhe sua rotina de exercícios com a Garrafa Keep.',
+    description: 'Bola de basquete tamanho 7, ideal para treinar arremessos, praticar dribles e jogar com amigos.',
     sizes: ['Único'],
-    color: 'Preto',
-    composition: 'Garrafa reutilizável • tampa rosqueável',
+    color: 'Laranja/Marrom',
+    composition: 'Treinos e jogos de basquete',
     hex: '#e43601'
   },
   {
     id: 'luva',
-    name: 'Garrafa Keep',
-    price: 59.90,
+    name: 'Luva de boxe',
+    price: 129.90,
     category: 'corrida',
     type: 'Acessórios',
     image: 'assets/box-editada.jpg',
     images: ['assets/box-editada.jpg', 'assets/box.jpg'],
-    description: 'Acompanhe sua rotina de exercícios com a Garrafa Keep.',
+    description: 'Luva de boxe de 16 oz ideal para praticar golpes no saco de pancadas e treinar com manoplas.',
     sizes: ['Único'],
     color: 'Preto',
-    composition: 'Garrafa reutilizável • tampa rosqueável',
+    composition: 'Treinos de boxe',
     hex: '#0f0f0f'
   }
 ];
