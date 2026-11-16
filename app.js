@@ -9,10 +9,12 @@ const PRODUCTS = [
     type: 'Camisetas',
     detailImage: 'assets/bola.png',
     images: ['assets/bola_semtrave_saturado.jpg', 'assets/bolaa.jpg'],
+    image: 'assets/bolaa.jpg',
     description: 'Alta durabilidade para garantir muitos momentos em família. Sinta a diversão do momento proporcionada pela qualidade da fabricação pensada no seu lazer.',
     color: 'Azul',
     composition: 'Costura reforçada • produção não-poluente',
-    hex: '#24959b'
+    hex: '#24959b',
+    autor: 'Sophia Sales'
   },
   {
     id: 'tenis-street',
@@ -22,10 +24,12 @@ const PRODUCTS = [
     type: 'Item',
     detailImage: 'assets/halter-1.jpg',
     images: ['assets/halter-editado.jpg', 'assets/halter-1.jpg'],
+    image: 'assets/halter-1.jpg',
     description: 'O Halter de 2kg é ideal para quem busca melhorar o condicionamento físico e muscular, além de aumentar a resistência. É muito confortável e seu formato sextavado proporciona maior estabilidade, evitando que o equipamento role ao ser apoiado no chão. Pode ser utilizado tanto em academias quanto em casa, sendo uma ótima opção para iniciantes e para exercícios que utilizam cargas leves.',
     color: 'Azul',
     composition: 'Estilo casual esportivo',
-    hex: '#00ACDE'
+    hex: '#00ACDE',
+    autor: 'Ana Luiza da Silva'
   },
   {
     id: 'mochila-urbana',
@@ -35,10 +39,12 @@ const PRODUCTS = [
     type: 'Mochilas',
     detailImage: 'assets/bicicleta.jpeg',
     images: ['assets/bicicleta-editada.jpeg', 'assets/bicicleta.jpeg'],
+    image: 'assets/bicicleta.jpeg',
     description: 'Bicicleta infantil. Confortável e ideal para passeios e atividades físicas leves.',
     color: 'Rosa',
     composition: 'Modelo urbano • Metal • Ideal para crianças de 8 anos',
-    hex: '#fc8dd4'
+    hex: '#fc8dd4',
+    autor: 'Rafaella Sannt\'anna'
   },
   {
     id: 'garrafa-keep',
@@ -48,10 +54,12 @@ const PRODUCTS = [
     type: 'Acessórios',
     detailImage: 'assets/basquete.jpg',
     images: ['assets/bola-editada.jpg', 'assets/basquete.jpg'],
+    image: 'assets/basquete.jpg',
     description: 'Bola de basquete tamanho 7, ideal para treinar arremessos, praticar dribles e jogar com amigos.',
     color: 'Laranja/Marrom',
     composition: 'Treinos e jogos de basquete',
-    hex: '#e43601'
+    hex: '#e43601',
+    autor: 'Kleber da Silva'
   },
   {
     id: 'luva',
@@ -61,10 +69,12 @@ const PRODUCTS = [
     type: 'Acessórios',
     detailImage: 'assets/box.jpg',
     images: ['assets/box-editada.jpg', 'assets/box.jpg'],
+    image: 'assets/box.jpg',
     description: 'Luva de boxe de 16 oz ideal para praticar golpes no saco de pancadas e treinar com manoplas.',
     color: 'Preto',
     composition: 'Treinos de boxe',
-    hex: '#0f0f0f'
+    hex: '#0f0f0f',
+    autor: 'Kleber da Silva'
   }
 ];
 
@@ -145,7 +155,7 @@ function writeStore(key, value) {
   }
 }
 
-let cart = readStore('keep_cart_v1', []);
+let cart = readStore('NECO_cart_v1', []);
 if (!Array.isArray(cart)) cart = [];
 
 cart = cart
@@ -159,14 +169,14 @@ cart = cart
     qty: Math.min(item.qty, 99)
   }));
 
-let favorites = readStore('keep_favorites_v1', []);
+let favorites = readStore('NECO_favorites_v1', []);
 if (!Array.isArray(favorites)) favorites = [];
 favorites = favorites.filter(id => productById(id));
 
-let orders = readStore('keep_orders_v1', []);
+let orders = readStore('NECO_orders_v1', []);
 if (!Array.isArray(orders)) orders = [];
 
-let profile = readStore('keep_profile_v1', {});
+let profile = readStore('NECO_profile_v1', {});
 if (!profile || typeof profile !== 'object') profile = {};
 
 let category = 'all';
@@ -180,13 +190,11 @@ const productGrid = byId('productGrid');
 const productDialog = byId('productDialog');
 const cartDialog = byId('cartDialog');
 const accountDialog = byId('accountDialog');
-const checkoutDialog = byId('checkoutDialog');
 
 const dialogs = [
   productDialog,
   cartDialog,
-  accountDialog,
-  checkoutDialog
+  accountDialog
 ];
 
 function notify(message) {
@@ -261,7 +269,7 @@ function renderProducts() {
     category === 'all' && !query && !onlyFavorites;
 
   byId('productsSubtitle').textContent =
-    query ? `BUSCA: ${query}` : 'SELEÇÃO KEEP';
+    query ? `BUSCA: ${query}` : 'SELEÇÃO NECO';
 
   document.querySelectorAll('[data-category]').forEach(btn => {
     btn.classList.toggle(
@@ -395,7 +403,7 @@ function toggleFavorite(id) {
     notify('Produto salvo nos favoritos!');
   }
 
-  writeStore('keep_favorites_v1', favorites);
+  writeStore('NECO_favorites_v1', favorites);
   renderProducts();
 
   if (activeProduct?.id === id && productDialog.open) {
@@ -514,20 +522,9 @@ function renderProductDetail() {
 
         <div class="detail-benefits">
           <div class="benefit">
-            ${icon('truck')}
-            <span>Frete grátis<small>A partir de R$ 199*</small></span>
-          </div>
-
-          <div class="benefit">
             ${icon('box')}
-            <span>Troca fácil<small>Política ilustrativa*</small></span>
+            <span>Autor<small>${p.autor}</small></span>
           </div>
-
-          <div class="benefit">
-            ${icon('shield')}
-            <span>Loja demo<small>Sem cobrança real</small></span>
-          </div>
-        </div>
 
       </div>
     </div>
@@ -536,8 +533,7 @@ function renderProductDetail() {
 
 // CARRINHO
 function addToCart(id, qty) {
-  const existing = cart.find(
-  );
+  const existing = cart.find(item => item.id === id);
 
   if (existing) {
     existing.qty = Math.min(99, existing.qty + qty);
@@ -545,7 +541,7 @@ function addToCart(id, qty) {
     cart.push({ id, qty });
   }
 
-  writeStore('keep_cart_v1', cart);
+  writeStore('NECO_cart_v1', cart);
   updateCartCount();
 }
 
@@ -581,7 +577,7 @@ function renderCart() {
       <div class="cart-empty">
         ${icon('cart')}
         <h3>Seu carrinho está vazio</h3>
-        <p>Que tal escolher seu próximo item da KEEP?</p>
+        <p>Que tal escolher seu próximo item da NECO?</p>
         <button class="button button-dark" id="continueShopping">
           VER PRODUTOS ${icon('arrow')}
         </button>
@@ -675,10 +671,6 @@ function renderCart() {
     >
       FINALIZAR PEDIDO ${icon('arrow')}
     </button>
-
-    <p class="cart-disclaimer">
-      Simulação: nenhum pagamento será realizado.
-    </p>
   `;
 }
 
@@ -688,87 +680,14 @@ function openCart() {
 }
 
 // FINALIZAÇÃO
-function openCheckout() {
+function finishOrder() {
   if (!cart.length) {
     notify('Seu carrinho está vazio.');
     return;
   }
 
-  byId('checkoutContent').innerHTML = `
-    <p class="section-kicker">FINALIZAÇÃO DEMONSTRATIVA</p>
-
-    <h2 id="checkoutTitle">Revisar pedido</h2>
-
-    <p class="subtle">
-      Nenhum pagamento será cobrado e nenhum pedido será enviado.
-      Este formulário simula a compra apenas neste navegador.
-    </p>
-
-    <div id="checkoutSummary" class="checkout-summary">
-      <span>
-        ${cartCount()} ${cartCount() === 1 ? 'item' : 'itens'}
-      </span>
-      <strong>${money(cartTotals())}</strong>
-    </div>
-
-    <form id="checkoutForm" class="form-stack">
-      <label for="checkoutName">
-        Nome completo
-        <input
-          id="checkoutName"
-          name="name"
-          autocomplete="name"
-          required
-          minlength="3"
-          maxlength="100"
-          placeholder="Seu nome"
-        >
-      </label>
-
-      <label for="checkoutEmail">
-        E-mail
-        <input
-          id="checkoutEmail"
-          name="email"
-          type="email"
-          autocomplete="email"
-          required
-          placeholder="voce@exemplo.com"
-        >
-      </label>
-
-      <button type="submit" class="button button-yellow">
-        CONCLUIR SIMULAÇÃO ${icon('arrow')}
-      </button>
-    </form>
-  `;
-
-  const nameInput = byId('checkoutName');
-
-  if (typeof profile.name === 'string') {
-    nameInput.value = profile.name;
-  }
-
-  openDialog(checkoutDialog);
-}
-
-function submitCheckout(event) {
-  event.preventDefault();
-
-  const form = event.target;
-
-  if (!form.reportValidity() || !cart.length) return;
-
-  const name = form.elements.name.value.trim();
-  const email = form.elements.email.value.trim();
-
-  if (!name || !email) {
-    notify('Preencha os dados para continuar.');
-    return;
-  }
-
   const orderCode =
-    'KEEP-' + Date.now().toString(36).toUpperCase().slice(-7);
+    'NECO-' + Date.now().toString(36).toUpperCase().slice(-7);
 
   const order = {
     code: orderCode,
@@ -779,42 +698,15 @@ function submitCheckout(event) {
   };
 
   orders.unshift(order);
-  writeStore('keep_orders_v1', orders);
-
-  profile.name = name;
-  writeStore('keep_profile_v1', profile);
+  writeStore('NECO_orders_v1', orders);
 
   cart = [];
-  writeStore('keep_cart_v1', cart);
+  writeStore('NECO_cart_v1', cart);
 
   updateCartCount();
+  closeDialog(cartDialog);
 
-  byId('checkoutContent').innerHTML = `
-    <div class="success-panel">
-      <span class="success-check">${icon('check')}</span>
-
-      <p class="section-kicker">SIMULAÇÃO CONCLUÍDA</p>
-
-      <h2 id="checkoutTitle">
-        Tudo certo, ${escapeHtml(name.split(' ')[0])}!
-      </h2>
-
-      <p class="subtle">
-        Seu pedido demonstrativo
-        <strong>${orderCode}</strong>
-        foi salvo neste navegador.
-        Nenhuma compra real foi feita e nenhum e-mail será enviado.
-      </p>
-
-      <button
-        type="button"
-        class="button button-dark"
-        id="finishCheckout"
-      >
-        VOLTAR À LOJA ${icon('arrow')}
-      </button>
-    </div>
-  `;
+  notify(`Pedido ${orderCode} concluído!`);
 }
 
 function escapeHtml(text) {
@@ -845,7 +737,7 @@ function openAccount() {
           <strong>${money(order.total)}</strong>
         </div>
       `).join('')
-      : '<p>Você ainda não concluiu uma simulação de pedido.</p>'}
+      : '<p>Você ainda não concluiu um pedido.</p>'}
   `;
 
   openDialog(accountDialog);
@@ -956,10 +848,6 @@ productDialog.addEventListener('click', event => {
   if (event.target.closest('#addCartBtn')) {
 
     addToCart(activeProduct.id, selectedQty);
-
-    closeDialog(productDialog);
-    openCart();
-
     notify('Produto adicionado ao carrinho!');
     return;
   }
@@ -981,7 +869,7 @@ cartDialog.addEventListener('click', event => {
 
     cart.splice(idx, 1);
 
-    writeStore('keep_cart_v1', cart);
+    writeStore('NECO_cart_v1', cart);
     updateCartCount();
     renderCart();
 
@@ -1005,7 +893,7 @@ cartDialog.addEventListener('click', event => {
       cart[idx].qty = Math.min(99, cart[idx].qty);
     }
 
-    writeStore('keep_cart_v1', cart);
+    writeStore('NECO_cart_v1', cart);
     updateCartCount();
     renderCart();
 
@@ -1021,20 +909,7 @@ cartDialog.addEventListener('click', event => {
   }
 
   if (event.target.closest('#goToCheckout')) {
-    openCheckout();
-  }
-});
-
-// FINALIZAÇÃO
-checkoutDialog.addEventListener('submit', event => {
-  if (event.target.id === 'checkoutForm') {
-    submitCheckout(event);
-  }
-});
-
-checkoutDialog.addEventListener('click', event => {
-  if (event.target.closest('#finishCheckout')) {
-    closeDialog(checkoutDialog);
+    finishOrder();
   }
 });
 
@@ -1052,7 +927,7 @@ byId('accountForm').addEventListener('submit', event => {
   }
 
   profile.name = name;
-  writeStore('keep_profile_v1', profile);
+  writeStore('NECO_profile_v1', profile);
 
   closeDialog(accountDialog);
 
