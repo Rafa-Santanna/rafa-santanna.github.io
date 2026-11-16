@@ -1,10 +1,10 @@
-# KEEP — Loja de artigos esportivos
+# NECO — Loja de artigos esportivos
 
 Protótipo funcional de e-commerce em **HTML, CSS e JavaScript puro**, inspirado na imagem fornecida.
 
 ## Como executar
 
-1. Extraia o ZIP da pasta `KEEP-loja`.
+1. Extraia o ZIP da pasta `NECO-loja`.
 2. Abra a pasta no VS Code.
 3. Abra `index.html` no navegador. Para desenvolvimento, você também pode usar a extensão **Live Server** do VS Code e clicar em **Open with Live Server**.
 

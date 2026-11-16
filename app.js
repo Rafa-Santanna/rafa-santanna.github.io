@@ -1,8 +1,3 @@
-
-/* NECO — vitrine de artigos esportivos (front-end demonstrativo)
- * Carrinho, favoritos, perfil e pedidos demonstrativos são salvos no navegador.
- * Pagamentos reais exigem um back-end e um provedor de pagamentos.
- */
 'use strict';
 
 const PRODUCTS = [
@@ -12,11 +7,9 @@ const PRODUCTS = [
     price: 84.90,
     category: 'futebol',
     type: 'Camisetas',
-    image: 'assets/bolola.jpg',
     detailImage: 'assets/bola.png',
-    images: ['assets/bolola.jpg', 'assets/bola.png'],
+    images: ['assets/bola_semtrave_saturado.jpg', 'assets/bolaa.jpg'],
     description: 'Alta durabilidade para garantir muitos momentos em família. Sinta a diversão do momento proporcionada pela qualidade da fabricação pensada no seu lazer.',
-    sizes: [],
     color: 'Azul',
     composition: 'Costura reforçada • produção não-poluente',
     hex: '#24959b'
@@ -27,10 +20,9 @@ const PRODUCTS = [
     price: 49.90,
     category: 'basquete',
     type: 'Item',
-    image: 'assets/halter-editado.jpg',
+    detailImage: 'assets/halter-1.jpg',
     images: ['assets/halter-editado.jpg', 'assets/halter-1.jpg'],
     description: 'O Halter de 2kg é ideal para quem busca melhorar o condicionamento físico e muscular, além de aumentar a resistência. É muito confortável e seu formato sextavado proporciona maior estabilidade, evitando que o equipamento role ao ser apoiado no chão. Pode ser utilizado tanto em academias quanto em casa, sendo uma ótima opção para iniciantes e para exercícios que utilizam cargas leves.',
-    sizes: ['Único'],
     color: 'Azul',
     composition: 'Estilo casual esportivo',
     hex: '#00ACDE'
@@ -41,10 +33,9 @@ const PRODUCTS = [
     price: 459.90,
     category: 'skate',
     type: 'Mochilas',
-    image: 'assets/bicicleta-editada.jpeg',
+    detailImage: 'assets/bicicleta.jpeg',
     images: ['assets/bicicleta-editada.jpeg', 'assets/bicicleta.jpeg'],
     description: 'Bicicleta infantil. Confortável e ideal para passeios e atividades físicas leves.',
-    sizes: ['Único'],
     color: 'Rosa',
     composition: 'Modelo urbano • Metal • Ideal para crianças de 8 anos',
     hex: '#fc8dd4'
@@ -55,10 +46,9 @@ const PRODUCTS = [
     price: 59.90,
     category: 'corrida',
     type: 'Acessórios',
-    image: 'assets/bola-editada.jpg',
+    detailImage: 'assets/basquete.jpg',
     images: ['assets/bola-editada.jpg', 'assets/basquete.jpg'],
     description: 'Bola de basquete tamanho 7, ideal para treinar arremessos, praticar dribles e jogar com amigos.',
-    sizes: ['Único'],
     color: 'Laranja/Marrom',
     composition: 'Treinos e jogos de basquete',
     hex: '#e43601'
@@ -69,10 +59,9 @@ const PRODUCTS = [
     price: 129.90,
     category: 'corrida',
     type: 'Acessórios',
-    image: 'assets/box-editada.jpg',
+    detailImage: 'assets/box.jpg',
     images: ['assets/box-editada.jpg', 'assets/box.jpg'],
     description: 'Luva de boxe de 16 oz ideal para praticar golpes no saco de pancadas e treinar com manoplas.',
-    sizes: ['Único'],
     color: 'Preto',
     composition: 'Treinos de boxe',
     hex: '#0f0f0f'
@@ -167,7 +156,6 @@ cart = cart
   )
   .map(item => ({
     id: item.id,
-    size: String(item.size || 'Único'),
     qty: Math.min(item.qty, 99)
   }));
 
@@ -185,7 +173,6 @@ let category = 'all';
 let onlyFavorites = false;
 let query = '';
 let activeProduct = null;
-let selectedSize = null;
 let selectedQty = 1;
 let toastTimeout;
 
@@ -425,11 +412,6 @@ function openProduct(id) {
   activeProduct = productById(id);
   if (!activeProduct) return;
 
-  selectedSize =
-    activeProduct.sizes.length === 1
-      ? activeProduct.sizes[0]
-      : null;
-
   selectedQty = 1;
 
   renderProductDetail();
@@ -482,27 +464,6 @@ function renderProductDetail() {
               <span class="color-dot" aria-hidden="true" style="background:${p.hex}"></span>
               ${p.color}
             </span>
-          </div>
-        </div>
-
-        <div class="option-group">
-          <p class="option-title">
-            ${p.sizes[0] === 'Único'
-              ? 'Modelo:'
-              : 'Escolha seu tamanho:'}
-          </p>
-
-          <div class="size-list" aria-label="Tamanhos disponíveis">
-            ${p.sizes.map(size => `
-              <button
-                type="button"
-                data-size="${size}"
-                class="size-option ${selectedSize === size ? 'is-selected' : ''}"
-                aria-pressed="${selectedSize === size}"
-              >
-                ${size}
-              </button>
-            `).join('')}
           </div>
         </div>
 
@@ -574,15 +535,14 @@ function renderProductDetail() {
 }
 
 // CARRINHO
-function addToCart(id, size, qty) {
+function addToCart(id, qty) {
   const existing = cart.find(
-    item => item.id === id && item.size === size
   );
 
   if (existing) {
     existing.qty = Math.min(99, existing.qty + qty);
   } else {
-    cart.push({ id, size, qty });
+    cart.push({ id, qty });
   }
 
   writeStore('keep_cart_v1', cart);
@@ -644,7 +604,7 @@ function renderCart() {
             <div>
               <div class="cart-item-name">${p.name}</div>
               <div class="cart-item-spec">
-                ${p.color} · ${item.size}
+                ${p.color}
               </div>
             </div>
 
@@ -978,22 +938,6 @@ productDialog.addEventListener('click', event => {
     return;
   }
 
-  const sizeButton = event.target.closest('[data-size]');
-
-  if (sizeButton) {
-    selectedSize = sizeButton.dataset.size;
-
-    productDialog.querySelectorAll('[data-size]').forEach(btn => {
-      const chosen = btn.dataset.size === selectedSize;
-
-      btn.classList.toggle('is-selected', chosen);
-
-      btn.setAttribute('aria-pressed', String(chosen));
-    });
-
-    return;
-  }
-
   const deltaButton = event.target.closest('[data-detail-qty]');
 
   if (deltaButton) {
@@ -1011,12 +955,7 @@ productDialog.addEventListener('click', event => {
 
   if (event.target.closest('#addCartBtn')) {
 
-    if (!selectedSize) {
-      notify('Selecione um tamanho antes de adicionar ao carrinho.');
-      return;
-    }
-
-    addToCart(activeProduct.id, selectedSize, selectedQty);
+    addToCart(activeProduct.id, selectedQty);
 
     closeDialog(productDialog);
     openCart();

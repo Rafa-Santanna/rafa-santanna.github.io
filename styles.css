@@ -596,7 +596,9 @@ svg.icon {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10%;
-  align-items: center
+  align-items: center;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .story-section h2 {
@@ -2006,7 +2008,7 @@ dialog[open] {
 
 .advertising-group img {
     width: 350px;
-    height: 220px;
+    height: 250px;
     object-fit: cover;
     border-radius: 12px;
     display: block;
