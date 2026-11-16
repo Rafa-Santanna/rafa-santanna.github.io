@@ -601,19 +601,20 @@ svg.icon {
   text-justify: inter-word;
 }
 
+.story-inner img {
+  border-radius: 16px;
+}
+
 .story-section h2 {
+  color: #ffbf00;
+  text-align: left;
   font-size: clamp(40px, 5vw, 63px);
   letter-spacing: -.06em;
   line-height: 1;
   margin: 0
 }
 
-.story-section .eyebrow {
-  color: #ffbf00;
-  letter-spacing: .25em
-}
-
-.story-section p:not(.eyebrow) {
+.story-section p {
   font-size: 19px;
   line-height: 1.55;
   color: #dedede;
@@ -630,17 +631,17 @@ svg.icon {
 }
 
 .footer-inner {
-  padding: 43px 0;
+  padding: 36px 0 30px;
   display: grid;
-  grid-template-columns: 1.2fr .7fr 1fr;
-  gap: 65px
+  grid-template-columns: 1.1fr .75fr 1.1fr;
+  gap: 44px
 }
 
 .footer-inner>div {
   display: flex;
   flex-direction: column;
   align-items: start;
-  gap: 8px
+  gap: 10px
 }
 
 .footer-inner strong {
@@ -796,7 +797,6 @@ dialog[open] {
   font-size: 11px;
   letter-spacing: .15em;
   color: #777;
-  text-transform: uppercase;
   font-weight: 700;
   margin: 0 0 10px
 }
@@ -1563,7 +1563,7 @@ dialog[open] {
     font-size: 45px
   }
 
-  .story-section p:not(.eyebrow) {
+  .story-section p {
     font-size: 16px
   }
 

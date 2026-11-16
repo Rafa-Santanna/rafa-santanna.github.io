@@ -47,32 +47,32 @@ const PRODUCTS = [
     autor: 'Rafaella Sannt\'anna'
   },
   {
-    id: 'garrafa-NECO',
-    name: 'Garrafa NECO',
+    id: 'garrafa-keep',
+    name: 'Bola de basquete',
     price: 59.90,
     category: 'corrida',
     type: 'Acessórios',
     detailImage: 'assets/basquete.jpg',
     images: ['assets/bola-editada.jpg', 'assets/basquete.jpg'],
     image: 'assets/basquete.jpg',
-    description: 'Acompanhe sua rotina de exercícios com a Garrafa NECO.',
-    color: 'Laranja',
-    composition: 'Garrafa reutilizável • tampa rosqueável',
+    description: 'Bola de basquete tamanho 7, ideal para treinar arremessos, praticar dribles e jogar com amigos.',
+    color: 'Laranja/Marrom',
+    composition: 'Treinos e jogos de basquete',
     hex: '#e43601',
     autor: 'Kleber da Silva'
   },
   {
     id: 'luva',
-    name: 'Garrafa NECO',
-    price: 59.90,
+    name: 'Luva de boxe',
+    price: 129.90,
     category: 'corrida',
     type: 'Acessórios',
     detailImage: 'assets/box.jpg',
     images: ['assets/box-editada.jpg', 'assets/box.jpg'],
     image: 'assets/box.jpg',
-    description: 'Acompanhe sua rotina de exercícios com a Garrafa NECO.',
+    description: 'Luva de boxe de 16 oz ideal para praticar golpes no saco de pancadas e treinar com manoplas.',
     color: 'Preto',
-    composition: 'Garrafa reutilizável • tampa rosqueável',
+    composition: 'Treinos de boxe',
     hex: '#0f0f0f',
     autor: 'Kleber da Silva'
   }
@@ -435,7 +435,7 @@ function renderProductDetail() {
 
       <div class="detail-gallery">
         <span class="gallery-category-label">
-          NECO / MOVIMENTO
+          NECO Company
         </span>
 
         <img
@@ -453,7 +453,7 @@ function renderProductDetail() {
 
       <div class="detail-info">
 
-        <p class="detail-eyebrow">${p.type} / NECO</p>
+        <p class="detail-eyebrow">NECO Company</p>
 
         <h2 id="detailName">${p.name}</h2>
 
