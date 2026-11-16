@@ -1,6 +1,5 @@
 
-/* KEEP — vitrine de artigos esportivos (front-end demonstrativo)
- * Personalize os produtos no array PRODUCTS.
+/* NECO — vitrine de artigos esportivos (front-end demonstrativo)
  * Carrinho, favoritos, perfil e pedidos demonstrativos são salvos no navegador.
  * Pagamentos reais exigem um back-end e um provedor de pagamentos.
  */
