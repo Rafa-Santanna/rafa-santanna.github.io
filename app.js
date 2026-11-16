@@ -848,10 +848,6 @@ productDialog.addEventListener('click', event => {
   if (event.target.closest('#addCartBtn')) {
 
     addToCart(activeProduct.id, selectedQty);
-
-    closeDialog(productDialog);
-    openCart();
-
     notify('Produto adicionado ao carrinho!');
     return;
   }
