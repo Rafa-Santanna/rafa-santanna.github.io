@@ -31,7 +31,7 @@
 
   <header class="site-header" id="inicio">
     <div class="container header-inner">
-      <a class="brand" href="#inicio" aria-label="NECO, voltar ao início"><img src="assets/logo-sem-fundo-grande.png" alt="KEEP" width="154" height="64"></a>
+      <a class="brand" href="#inicio" aria-label="NECO, voltar ao início"><img src="assets/logo-sem-fundo-grande.png" alt="NECO" width="154" height="64"></a>
       <nav class="desktop-nav" aria-label="Navegação principal">
         <a class="nav-link is-current" href="#inicio">Início</a>
         <a class="nav-link" href="#produtos">Produtos</a>
@@ -72,7 +72,7 @@
     <section class="products-section container" id="produtos" aria-labelledby="productsTitle">
       <div class="section-heading">
         <div>
-          <p id="productsSubtitle" class="section-kicker" hidden>SELEÇÃO KEEP</p>
+          <p id="productsSubtitle" class="section-kicker" hidden>SELEÇÃO NECO</p>
           <h2 id="productsTitle">Produtos em destaque</h2>
         </div>
         <button type="button" class="plain-link" id="viewAllBtn">VER TODOS <svg class="icon"><use href="#i-arrow"></use></svg></button>
@@ -131,13 +131,6 @@
 
 </section>
 
-
-    <section class="features-bar container" aria-label="Vantagens da loja">
-      <div class="feature"><svg class="icon"><use href="#i-truck"></use></svg><div><strong>Frete grátis</strong><span>Acima de R$ 199*</span></div></div>
-      <div class="feature"><svg class="icon"><use href="#i-box"></use></svg><div><strong>Troca fácil</strong><span>Em até 30 dias*</span></div></div>
-      <div class="feature"><svg class="icon"><use href="#i-shield"></use></svg><div><strong>Compra protegida</strong><span>Experiência de demonstração</span></div></div>
-    </section>
-
     <section class="story-section" id="sobre">
       <div class="container story-inner">
         <div><p class="eyebrow">NOSSA ESSÊNCIA</p><img src="https://cabofrio.rj.gov.br/wp-content/uploads/2020/01/WhatsApp-Image-2020-01-09-at-14.33.01-1.jpeg"></h2></div>
@@ -148,7 +141,7 @@
 
   <footer class="site-footer" id="contato">
     <div class="container footer-inner">
-      <div><img src="assets/logo-sem-fundo-grande.png" width="128" height="85" alt="KEEP"><p>Esportes, diversão, histórias</p></div>
+      <div><img src="assets/logo-sem-fundo-grande.png" width="128" height="85" alt="NECO"><p>Esportes, diversão, histórias</p></div>
       <div><strong>Explore</strong><a href="#produtos">Produtos</a><a href="#colecoes">Coleções</a><a href="#sobre">Nossa história</a></div>
       <div><strong>Atendimento</strong><p>Ana Luiza<br>Kleber Pires<br>Sophia Sales<br>Rafaella Santanna</p></div>
     </div>
@@ -171,19 +164,6 @@
     <p class="section-kicker">MEU ESPAÇO</p><h2 id="accountTitle">Meu perfil</h2><p class="subtle">Salve seu nome neste navegador para personalizar a experiência. Não é uma conta online.</p>
     <form id="accountForm" class="form-stack"><label for="accountName">Seu nome<input id="accountName" name="name" maxlength="80" autocomplete="name" required placeholder="Como podemos chamar você?"></label><button class="button button-yellow" type="submit">SALVAR PERFIL</button></form>
     <div class="account-orders" id="orderHistory"></div>
-  </dialog>
-
-  <dialog class="checkout-dialog small-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
-    <button type="button" class="dialog-close" data-close-dialog aria-label="Fechar pedido"><svg class="icon"><use href="#i-close"></use></svg></button>
-    <div id="checkoutContent">
-      <p class="section-kicker">FINALIZAÇÃO</p><h2 id="checkoutTitle">Revisar pedido</h2>
-      <div id="checkoutSummary" class="checkout-summary"></div>
-      <form id="checkoutForm" class="form-stack">
-        <label for="checkoutName">Nome completo<input id="checkoutName" name="name" autocomplete="name" required minlength="3" maxlength="100" placeholder="Seu nome"></label>
-        <label for="checkoutEmail">E-mail<input id="checkoutEmail" name="email" autocomplete="email" type="email" required placeholder="voce@exemplo.com"></label>
-        <button type="submit" class="button button-yellow">CONCLUIR<svg class="icon"><use href="#i-arrow"></use></svg></button>
-      </form>
-    </div>
   </dialog>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
