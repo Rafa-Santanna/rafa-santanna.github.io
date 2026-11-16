@@ -427,7 +427,7 @@ function renderProductDetail() {
 
       <div class="detail-gallery">
         <span class="gallery-category-label">
-          KEEP / MOVIMENTO
+          NECO Company
         </span>
 
         <img
@@ -445,7 +445,7 @@ function renderProductDetail() {
 
       <div class="detail-info">
 
-        <p class="detail-eyebrow">${p.type} / KEEP</p>
+        <p class="detail-eyebrow">NECO Company</p>
 
         <h2 id="detailName">${p.name}</h2>
 
