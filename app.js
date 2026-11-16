@@ -30,8 +30,7 @@ const PRODUCTS = [
     type: 'Item',
     image: 'assets/halter-editado.jpg',
     images: ['assets/halter-editado.jpg', 'assets/halter-1.jpg'],
-    description: 'Halter sextavado de 2kg. Muito confortável e ideal para praticar atividades físicas.',
-    sizes: ['35', '36', '37', '38', '39', '40', '41', '42', '43'],
+    description: 'O Halter de 2kg é ideal para quem busca melhorar o condicionamento físico e muscular, além de aumentar a resistência. É muito confortável e seu formato sextavado proporciona maior estabilidade, evitando que o equipamento role ao ser apoiado no chão. Pode ser utilizado tanto em academias quanto em casa, sendo uma ótima opção para iniciantes e para exercícios que utilizam cargas leves.',
     color: 'Azul',
     composition: 'Estilo casual esportivo',
     hex: '#00ACDE'
