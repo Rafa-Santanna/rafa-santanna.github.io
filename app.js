@@ -12,7 +12,8 @@ const PRODUCTS = [
     description: 'Alta durabilidade para garantir muitos momentos em família. Sinta a diversão do momento proporcionada pela qualidade da fabricação pensada no seu lazer.',
     color: 'Azul',
     composition: 'Costura reforçada • produção não-poluente',
-    hex: '#24959b'
+    hex: '#24959b',
+    autor: 'Sophia Sales'
   },
   {
     id: 'tenis-street',
@@ -25,7 +26,8 @@ const PRODUCTS = [
     description: 'O Halter de 2kg é ideal para quem busca melhorar o condicionamento físico e muscular, além de aumentar a resistência. É muito confortável e seu formato sextavado proporciona maior estabilidade, evitando que o equipamento role ao ser apoiado no chão. Pode ser utilizado tanto em academias quanto em casa, sendo uma ótima opção para iniciantes e para exercícios que utilizam cargas leves.',
     color: 'Azul',
     composition: 'Estilo casual esportivo',
-    hex: '#00ACDE'
+    hex: '#00ACDE',
+    autor: 'Ana Luiza da Silva'
   },
   {
     id: 'mochila-urbana',
@@ -38,7 +40,8 @@ const PRODUCTS = [
     description: 'Bicicleta infantil. Confortável e ideal para passeios e atividades físicas leves.',
     color: 'Rosa',
     composition: 'Modelo urbano • Metal • Ideal para crianças de 8 anos',
-    hex: '#fc8dd4'
+    hex: '#fc8dd4',
+    autor: 'Rafaella Sannt\'anna'
   },
   {
     id: 'garrafa-keep',
@@ -51,7 +54,8 @@ const PRODUCTS = [
     description: 'Acompanhe sua rotina de exercícios com a Garrafa Keep.',
     color: 'Laranja',
     composition: 'Garrafa reutilizável • tampa rosqueável',
-    hex: '#e43601'
+    hex: '#e43601',
+    autor: 'Kleber da Silva'
   },
   {
     id: 'luva',
@@ -64,7 +68,8 @@ const PRODUCTS = [
     description: 'Acompanhe sua rotina de exercícios com a Garrafa Keep.',
     color: 'Preto',
     composition: 'Garrafa reutilizável • tampa rosqueável',
-    hex: '#0f0f0f'
+    hex: '#0f0f0f',
+    autor: 'Kleber da Silva'
   }
 ];
 
@@ -514,20 +519,9 @@ function renderProductDetail() {
 
         <div class="detail-benefits">
           <div class="benefit">
-            ${icon('truck')}
-            <span>Frete grátis<small>A partir de R$ 199*</small></span>
-          </div>
-
-          <div class="benefit">
             ${icon('box')}
-            <span>Troca fácil<small>Política ilustrativa*</small></span>
+            <span>Autor<small>${p.autor}</small></span>
           </div>
-
-          <div class="benefit">
-            ${icon('shield')}
-            <span>Loja demo<small>Sem cobrança real</small></span>
-          </div>
-        </div>
 
       </div>
     </div>
